@@ -33,6 +33,9 @@ main section {
     width: 50%; }
 @media screen and (max-width: 991px) {
       main section {
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
         width: 100%; } }
 main section:first-of-type {
     background-color: #4784ff; }
@@ -78,6 +81,11 @@ main section:first-of-type .form__select-wrapper::after {
         position: absolute;
         right: 10px;
         top: 4px; }
+@media screen and (max-width: 991px) {
+          main section:first-of-type .form__select-wrapper::after {
+            line-height: 45px;
+            right: 10px;
+            top: 0px; } }
 main section:first-of-type select.dropdown {
       -webkit-appearance: none;
       background-color: transparent;
@@ -123,6 +131,9 @@ main section:last-of-type .display-wrapper {
 @media screen and (max-width: 991px) {
         main section:last-of-type .display-wrapper {
           width: 100%; } }
+@media screen and (max-width: 660px) {
+        main section:last-of-type .display-wrapper {
+          height: 315px; } }
 main section:last-of-type .dog-image {
       background-position: center;
       background-size: cover;
@@ -133,6 +144,9 @@ main section:last-of-type .dog-image {
 @media screen and (min-width: 661px) and (max-width: 991px) {
         main section:last-of-type .dog-image {
           height: 550px; } }
+@media screen and (max-width: 660px) {
+        main section:last-of-type .dog-image {
+          height: 250px; } }
 main section:last-of-type button.btn {
       background-color: #ff6161;
       border: 0px;

@@ -23,6 +23,7 @@ main {
     width: 50%;
 
     @media screen and (max-width: 991px) {
+      justify-content: flex-start;
       width: 100%;
     }
   }
@@ -77,6 +78,12 @@ main {
         position: absolute;
         right: 10px;
         top: 4px;
+
+        @media screen and (max-width: 991px) {
+          line-height: 45px;
+          right: 10px;
+          top: 0px;
+        }
       }
     }
 
@@ -129,6 +136,10 @@ main {
       @media screen and (max-width: 991px) {
         width: 100%;
       }
+
+      @media screen and (max-width: 660px) {
+        height: 315px;
+      }
     }
 
     .dog-image {
@@ -141,6 +152,10 @@ main {
 
       @media screen and (min-width: 661px) and (max-width: 991px) {
         height: 550px;
+      }
+
+      @media screen and (max-width: 660px) {
+        height: 250px;
       }
     }
 
