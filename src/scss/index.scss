@@ -1,0 +1,166 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  color: #fff;
+  display: flex;
+  min-height: 100vh;
+
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
+  }
+
+  section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+
+    @media screen and (max-width: 991px) {
+      width: 100%;
+    }
+  }
+
+  section:first-of-type {
+    background-color: #4784ff;
+
+    @media screen and (max-width: 991px) {
+      padding: 30px 20px;
+    }
+
+    h1.header__name {
+      color: #fff;
+      font-family: 'Bowlby One SC', cursive;
+      font-size: 68px;
+      line-height: 62px;
+      margin: 0 0 25px;
+      width: 68%;
+
+      @media screen and (max-width: 991px) {
+        font-size: 38px;
+        line-height: 34px;
+        width: 100%;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      width: 67%;
+
+      @media screen and (max-width: 991px) {
+        width: 100%;
+      }
+    }
+
+    .smalltext {
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    .form__select-wrapper {
+      position: relative;
+
+      &::after {
+        content: '⌄';
+        font-size: 50px;
+        font-weight: 300;
+        line-height: 50px;
+        pointer-events: none;
+        position: absolute;
+        right: 10px;
+        top: 4px;
+      }
+    }
+
+    select.dropdown {
+      -webkit-appearance: none;
+      background-color: transparent;
+      border-radius: 0;
+      border: 1px solid #fff;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      height: 45px;
+      margin-top: 10px;
+      padding-left: 10px;
+      position: relative;
+      text-transform: capitalize;
+      width: 100%;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  section:last-of-type {
+    background-color: #ffd2d2;
+
+    @media screen and (max-width: 991px) {
+      flex: 1 0 auto;
+      margin-top: auto;
+      padding: 30px 20px;
+    }
+
+    .display-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      height: 365px;
+      justify-content: center;
+      width: 68%;
+
+      @media screen and (min-width: 661px) and (max-width: 991px) {
+        height: 605px;
+      }
+
+      @media screen and (max-width: 991px) {
+        width: 100%;
+      }
+    }
+
+    .dog-image {
+      background-position: center;
+      background-size: cover;
+      height: 310px;
+      max-width: 100%;
+      margin-bottom: auto;
+      width: 100%;
+
+      @media screen and (min-width: 661px) and (max-width: 991px) {
+        height: 550px;
+      }
+    }
+
+    button.btn {
+      background-color: #ff6161;
+      border: 0px;
+      color: #fff;
+      font-family: 'Bowlby One SC', cursive;
+      font-size: 22px;
+      height: 45px;
+      margin-top: auto;
+      width: 100%;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
