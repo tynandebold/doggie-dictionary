@@ -4,11 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Doggie Dictionary</title>
-  <link rel="shortcut icon" href="//www.tynandebold.com/assets/dev/favicon.ico">
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
+  <title>Doggie Dictionary</title>
+  <meta property="og:title" content="Doggie Dictionary">
+  <meta name="twitter:title" content="Doggie Dictionary">
+
+  <meta name="author" content="Tynan DeBold">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://www.tynandebold.com/doggie-dictionary/">
+  <meta property="og:url" content="https://www.tynandebold.com/doggie-dictionary/">
+
+  <link rel="shortcut icon" href="https://bestdogfoodforboxers.com/wp-content/uploads/2017/11/BestDogFoodForBoxer-Favicon.png">
+
+  <meta name="description" content="The Doggie Dictionary aims to satisfy the curiosities of dog lovers. Select your favorite breed to peruse photos or explore dogs you may be unfamiliar with.">
+  <meta property="og:description" content="The Doggie Dictionary aims to satisfy the curiosities of dog lovers. Select your favorite breed to peruse photos or explore dogs you may be unfamiliar with.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://dog.ceo/api/img/retriever-golden/n02099601_1249.jpg">
+
+  <style>
+    html { opacity: 0; transition: all .2s ease; } html.wf-active { opacity: 1; }
+  </style>
   <link rel="stylesheet" href="./dist/style.min.css">
 </head>
 <body>
@@ -16,7 +34,7 @@
     <section>
       <h1 class="header__name">Doggie Dictionary</h1>
       <form class="form">
-        <span class="smalltext">Choose a doggo</span>
+        <span class="smalltext">Choose a doggo:</span>
         <div class="form__select-wrapper">
           <select class="dropdown"></select>
         </div>
@@ -30,5 +48,13 @@
     </section>
   </main>
   <script src="./dist/script.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Roboto:300,500', 'Bowlby+One+SC']
+      }
+    });
+  </script>
 </body>
 </html>
