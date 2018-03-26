@@ -1,4 +1,107 @@
 import './scss/index.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// import Dog from './js/Dog';
+import Shuffle from './js/Shuffle';
+import showDog from './js/showDog';
+
+class Dropdown extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dogs: [],
+      loaded: false
+    };
+
+    this.setupData = this.setupData.bind(this);
+  }
+
+  componentDidMount() {
+    this.setupData();
+  }
+
+  async setupData() {
+    const url = 'https://dog.ceo/api/breeds/list/all';
+    const data = await getAllData(url);
+    const dogs = cleanData(data.message);
+
+    this.setState({dogs: dogs, loaded: true});
+  }
+
+  render() {
+    console.log(this.state.dogs);
+
+    const optionItems = this.state.dogs.map(dogName => {
+      <option value={dogName} key={dogName}>{dogName}</option>;
+    }).join('');
+
+    return (
+      <select className="dropdown">{ optionItems }</select>
+    );
+  }
+}
+
+class Image extends React.Component {
+  render() {
+    return (
+      <div className="dog-image"></div>
+    );
+  }
+}
+
+// <select className="dropdown"></select>
+class Form extends React.Component {
+  render() {
+    return (
+      <form className="form">
+        <span className="smalltext">Choose a doggo:</span>
+        <div className="form__select-wrapper">
+          <Dropdown />
+        </div>
+      </form>
+    );
+  }
+}
+
+function Header() {
+  return <h1 className="header__name">Doggie Dictionary</h1>;
+}
+
+function LeftLayout() {
+  return (
+    <section>
+      <Header />
+      <Form />
+    </section>
+  );
+}
+
+function RightLayout() {
+  return (
+    <section>
+      <div className="display-wrapper">
+        <Image />
+        <Shuffle />
+      </div>
+    </section>
+  );
+}
+
+function App() {
+  return (
+    <main>
+      <LeftLayout />
+      <RightLayout />
+    </main>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
 
 const $dropdown = document.querySelector('.dropdown');
 
@@ -18,7 +121,6 @@ function bindEvents() {
   $dropdown.addEventListener('change', (e) => {
     showDog(e.target.value);
   });
-  document.querySelector('.btn').addEventListener('click', showRandom);
 }
 
 function initRandomDog(dogs) {
@@ -28,38 +130,12 @@ function initRandomDog(dogs) {
   $dropdown.value = `${dogs[randomNum]}`;
 }
 
-async function showDog(selected) {
-  const dog = selected.split(' ');
-  const imageUrl = await getOne(dog);
-
-  // document.querySelector('.dog-image').src = imageUrl;
-  document.querySelector('.dog-image').style.backgroundImage = `url(${imageUrl})`;
-}
-
 function generateDropdownMarkup(dogs) {
   const html = dogs.map(dogName => {
-    // const trimmedNamed = dogName.trim()
     return `<option value="${dogName}">${dogName}</option>`;
   }).join('');
 
   return html;
-}
-
-async function getOne(dog) {
-  let url;
-  if (dog.length > 1) {
-    url = `https://dog.ceo/api/breed/${dog[1]}/${dog[0]}/images/random`;
-  } else {
-    url = `https://dog.ceo/api/breed/${dog[0]}/${dog[0]}/images/random`;
-  }
-
-  const response = await fetch(url);
-  const data = await response.json();
-  return data.message;
-}
-
-function showRandom() {
-  showDog($dropdown.value);
 }
 
 function cleanData(data) {
@@ -67,7 +143,9 @@ function cleanData(data) {
   for (const dog in data) {
     if (data[dog].length) {
       data[dog].forEach(type => {
-        dogs.push(`${type} ${dog} `)
+        let typeEdit = type.charAt(0).toLowerCase() + type.substr(1);
+        let dogEdit = dog.charAt(0).toLowerCase() + dog.substr(1);
+        dogs.push(`${typeEdit} ${dogEdit}`)
       });
     } else {
       dogs.push(dog);
@@ -86,4 +164,4 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-init();
+// init();
