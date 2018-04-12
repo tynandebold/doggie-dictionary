@@ -27716,7 +27716,7 @@ var getOne = function () {
             if (dog.length > 1) {
               url = "https://dog.ceo/api/breed/" + dog[1] + "/" + dog[0] + "/images/random";
             } else {
-              url = "https://dog.ceo/api/breed/" + dog[0] + "/" + dog[0] + "/images/random";
+              url = "https://dog.ceo/api/breed/" + dog[0] + "/images/random";
             }
 
             _context.next = 4;
