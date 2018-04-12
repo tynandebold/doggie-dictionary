@@ -8,6 +8,6 @@ export default function Shuffle(props) {
   }
 
   return (
-    <button className="btn" onClick={ handleClick }>Shuffle</button>
+    <button className="btn" onClick={handleClick}>Shuffle</button>
   )
 }

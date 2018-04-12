@@ -16,16 +16,17 @@ export default class Dropdown extends React.Component {
   }
 
   componentDidMount() {
-    this.setupData().then(dogs => {
-      this.setState({ dogs: dogs });
+    this.setupData()
+      .then(dogs => {
+        this.setState({ dogs: dogs });
 
-      const randomNum = getRandomInt(0, this.state.dogs.length);
-      this.props.showDog(this.state.dogs[randomNum]);
-      this.setState({ value: this.state.dogs[randomNum] });
+        const randomNum = getRandomInt(0, this.state.dogs.length);
+        this.props.showDog(this.state.dogs[randomNum]);
+        this.setState({ value: this.state.dogs[randomNum] });
 
-      window.AppState = {
-        chosenDog: this.state.dogs[randomNum]
-      };
+        window.AppState = {
+          chosenDog: this.state.dogs[randomNum]
+        };
     });
   }
 
@@ -48,7 +49,7 @@ export default class Dropdown extends React.Component {
     });
 
     return (
-      <select className="dropdown" value={ this.state.value } onChange={ this.handleChange }>{ optionItems }</select>
+      <select className="dropdown" value={this.state.value} onChange={this.handleChange}>{optionItems}</select>
     );
   }
 }
