@@ -1,13 +1,14 @@
 import React from 'react';
+import { observer, inject } from "mobx-react";
 
-export default function Shuffle(props) {
+export default inject('chosenDog')(observer(function Shuffle(props) {
   function handleClick(e) {
     e.preventDefault();
 
-    props.showDog(window.AppState.chosenDog);
+    props.showDog(props.chosenDog.dog);
   }
 
   return (
     <button className="btn" onClick={handleClick}>Shuffle</button>
   )
-}
+}));

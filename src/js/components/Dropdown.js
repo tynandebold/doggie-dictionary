@@ -1,8 +1,12 @@
 import React from 'react';
+import { observer, inject } from "mobx-react";
+
 import cleanData from '../utils/cleanData';
 import getAllData from '../getAllData';
 import getRandomInt from '../utils/getRandomInt';
 
+@inject('chosenDog')
+@observer
 export default class Dropdown extends React.Component {
   constructor(props) {
     super(props);
@@ -24,9 +28,7 @@ export default class Dropdown extends React.Component {
         this.props.showDog(this.state.dogs[randomNum]);
         this.setState({ value: this.state.dogs[randomNum] });
 
-        window.AppState = {
-          chosenDog: this.state.dogs[randomNum]
-        };
+        this.props.chosenDog.dog = this.state.dogs[randomNum];
     });
   }
 
@@ -40,7 +42,7 @@ export default class Dropdown extends React.Component {
     this.props.showDog(event.target.value);
 
     this.setState({ value: event.target.value });
-    window.AppState.chosenDog = event.target.value;
+    this.props.chosenDog.dog = event.target.value;
   }
 
   render() {

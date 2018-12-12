@@ -32,7 +32,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['env', 'stage-0', 'react'],
-            plugins: ['transform-async-to-generator']
+            plugins: ['transform-async-to-generator', 'transform-decorators-legacy']
           }
         }
       }
