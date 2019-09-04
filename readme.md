@@ -28,3 +28,7 @@ To prep your app for deployment, run:
 $ npm build-production
 ```
 This will minify your `js` and `css`, name the files accordingly, and put them in `dist/`.
+
+## Website
+
+View it [here](https://tynandebold.com/doggie-dictionary/).
